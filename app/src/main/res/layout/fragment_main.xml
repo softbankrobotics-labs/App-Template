@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/main_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/isMainFragment"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/main_button_frag_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_text"
+        app:layout_constraintBottom_toTopOf="@id/main_button_reset"
+        android:text="@string/fragmentOne"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp"
+        android:layout_margin="10dp"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/main_button_frag_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_text"
+        app:layout_constraintBottom_toTopOf="@id/main_button_reset"
+        android:text="@string/fragmentTwo"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp"
+        android:layout_margin="10dp"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/main_button_reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/reset"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</android.support.constraint.ConstraintLayout>

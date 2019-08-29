@@ -1,0 +1,15 @@
+topic: ~screentwo()
+
+proposal: %init this is the fragment number two, the  key variable is set to $qiVariable
+
+concept:(values)[Pepper Nao]
+
+u:(["{[~i_want_to ~i_need_to]} {know} the {key} variable {please}"
+    "["tell me" "what is" "give me"] the value of the [{key} variable]"
+    "what's the value {of ["it" "the {key} variable"]}"]) ~confirmation, the value of the key variable is $qiVariable
+#
+u:(["[set update] ["the [key variable variable]" "it"] to _~values"]) $qiVariable=$1  ^execute(VariableExecutor, qiVariable, $qiVariable) ~confirmation, I updated it to $qiVariable
+
+u:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} one {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_one)
+
+u:(~reset) ~confirmation ^execute(FragmentExecutor, frag_main)

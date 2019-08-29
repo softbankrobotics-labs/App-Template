@@ -1,0 +1,11 @@
+topic: ~screenone()
+
+proposal: %init I am now in the topic of the fragment one
+
+proposal: %say something
+
+u:({["[~i_want_to ~i_need_to] you to" "{can} you {should}"] "{I would} like you to"} say something {please}) ^enableThenGoto(say)
+
+u:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} two {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_two)
+
+u:(~reset) ~confirmation ^execute(FragmentExecutor, frag_main)

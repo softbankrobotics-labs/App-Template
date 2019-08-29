@@ -1,0 +1,14 @@
+topic: ~concepts()
+
+concept:(i_want_to) [want "I want" "I want to" "want to" "I would like to" "would like to"]
+
+concept:(i_need_to) [need "I need" "I need to" "need to"]
+
+concept:(hello) ["hello" "hi" "hey" "good morning" "good evening"]
+
+concept:(bye)["goodbye" "see you" "bye" "bye bye"]
+
+concept:(reset){[~i_want_to ~i_need_to "let's" "can you"]} reset {["it" "the ["application app"]"]} {please}
+
+concept:(confirmation) ^rand["okay" "got it" "alright" "sure"]
+

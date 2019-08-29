@@ -1,0 +1,35 @@
+topic: ~everthing()
+
+# Fragment main
+proposal: %init I am now in the topic of the main fragment
+    u1:(~hello) hi ! I am still in the topic of the main fragment
+
+    u1:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} one {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_one)
+
+    u1:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} two {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_two)
+
+    u1:(~reset ~bye) ~confirmation ^execute(FragmentExecutor, frag_main)
+
+
+# Fragment one
+proposal: %init I am now in the topic of the fragment one
+    u1:({["[~i_want_to ~i_need_to] you to" "{can} you {should}"] "{I would} like you to"} say something {please}) ^enableThenGoto(say)
+
+    u1:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} two {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_two)
+
+    u1:(~reset) ~confirmation ^execute(FragmentExecutor, frag_main)
+
+proposal: %say something
+
+# Fragment two
+concept:(values)[Pepper Nao]
+proposal: %init this is the fragment number two, the  key variable is set to $qiVariable
+    u1:(["{[~i_want_to ~i_need_to]} {know} the {key} variable {please}"
+    "["tell me" "what is" "give me"] the value of the [{key} variable]"
+    "what's the value {of ["it" "the {key} variable"]}"]) ~confirmation, the value of the key variable is $qiVariable
+
+    u1:(["[set update] ["the [key variable variable]" "it"] to _~values"]) $qiVariable=$1  ^execute(VariableExecutor, qiVariable, $qiVariable) ~confirmation, I updated it to $qiVariable
+
+    u1:({[~i_want_to ~i_need_to "set" "put" "goto"]} {the} fragment {number} one {please}) ~confirmation ^execute(FragmentExecutor, frag_screen_one)
+
+    u1:(~reset) ~confirmation ^execute(FragmentExecutor, frag_main)
