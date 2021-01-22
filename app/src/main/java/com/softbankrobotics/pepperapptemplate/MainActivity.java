@@ -3,10 +3,11 @@ package com.softbankrobotics.pepperapptemplate;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.aldebaran.qi.Future;
 import com.aldebaran.qi.sdk.QiContext;
@@ -87,9 +88,11 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         englishChatBot.setupQiVariable("qiVariable");
         currentChatBot = englishChatBot;
         currentChatBot.chat.async().addOnStartedListener(() -> {
-            setSpeechBarDisplayStrategy(SpeechBarDisplayStrategy.ALWAYS); // Disable overlay mode for the rest of the app.
             setQiVariable("qiVariable", "Pepper"); // this is done here because the chatBot needs to be running for this to work.
-            setFragment(new MainFragment());
+            runOnUiThread(() -> {
+                setSpeechBarDisplayStrategy(SpeechBarDisplayStrategy.ALWAYS); // Disable overlay mode for the rest of the app.
+                setFragment(new MainFragment());
+            });
         });
         currentChatBot.chat.async().addOnNormalReplyFoundForListener(input -> {
             countDownNoInteraction.reset();
@@ -177,7 +180,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         return null;
     }
 
-    public android.support.v4.app.Fragment getFragment() {
+    public Fragment getFragment() {
         return fragmentManager.findFragmentByTag("currentFragment");
     }
 

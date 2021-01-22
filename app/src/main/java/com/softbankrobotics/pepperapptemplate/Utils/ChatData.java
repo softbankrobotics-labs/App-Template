@@ -319,7 +319,7 @@ public class ChatData {
                 Log.d(TAG, "going to bookmark " + bookmark + " in topic : " + topic);
                 Map<String, Bookmark> tmp = bookmarks.get(topic);
 
-                cancelcurrentGotoBookmarkFuture().thenConsume(uselessFuture ->
+                cancelCurrentGotoBookmarkFuture().thenConsume(uselessFuture ->
                         currentGotoBookmarkFuture = qiChatbot.async().goToBookmark(tmp.get(bookmark),
                                 AutonomousReactionImportance.HIGH, AutonomousReactionValidity.IMMEDIATE));
             }
@@ -328,7 +328,7 @@ public class ChatData {
         }
     }
 
-    public Future<Void> cancelcurrentGotoBookmarkFuture() {
+    public Future<Void> cancelCurrentGotoBookmarkFuture() {
         if (currentGotoBookmarkFuture == null) return Future.of(null);
         currentGotoBookmarkFuture.cancel(true);
         return currentGotoBookmarkFuture;

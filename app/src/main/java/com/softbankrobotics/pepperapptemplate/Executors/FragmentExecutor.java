@@ -1,6 +1,6 @@
 package com.softbankrobotics.pepperapptemplate.Executors;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 
 import com.aldebaran.qi.sdk.QiContext;
