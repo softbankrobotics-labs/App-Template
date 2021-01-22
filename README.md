@@ -8,4 +8,4 @@ This is a general structure of an android application built for Pepper. More pre
 
 ## Compatibility
 
-Tested running on pepper 1.8 and 1.8a, using NAOqi 2.9.3
+Tested running on pepper 1.8 and 1.8a, using NAOqi 2.9.5
